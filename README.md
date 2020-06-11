@@ -39,7 +39,7 @@
 ## Test Cases
 ### 1. Simplex Method
 
-Objective Function (Maximize): 2x + 5y + 4z
+Objective Function (Maximize): 6x + 5y + 4z
 
 Subject to: 2x + y + z <= 180
             x + 3y + 2z <= 300
@@ -59,7 +59,7 @@ objective function:
 |**1**   |6   |5   |4   |
 
 
-capcity constraints: 
+capacity constraints: 
 |    |1   |
 |----|----|
 |**1**   |180 |
