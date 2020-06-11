@@ -13,15 +13,12 @@ MethodsDialog::~MethodsDialog()
     delete ui;
 }
 
-
-
 void MethodsDialog::on_SimplexButton_clicked()
 {
     hide();
     simplexProblem = new SimplexProblem(this);
     simplexProblem->show();
 }
-
 
 void MethodsDialog::on_BnBButton_clicked()
 {

@@ -31,13 +31,13 @@ class Simplex
         std::vector<float> B;
         std::vector<float> C;
         float maximum;
-        bool isUnbounded;
+        bool is_Unbounded;
     public:
         Simplex(std::vector <std::vector<float> > matrix,std::vector<float> b ,std::vector<float> c,Ui::SimplexProblem *ui)
         {
             this->ui = ui;
             maximum = 0;
-            isUnbounded = false;
+            is_Unbounded = false;
             rows = matrix.size();
             cols = matrix[0].size();
             A.resize(rows, vector<float> (cols,0));
@@ -60,72 +60,73 @@ class Simplex
             }
         }
 
-        bool Simplex_Calculataion()
+        bool check_Optimality()
         {
-            if(checkOptimality() == true)
-            {
-                        return true;
-            }
-            int pivotColumn = find_PivotColumn();
-            if(isUnbounded == true)
-            {
-                ui->simplexOutputTextBrowser->insertPlainText("Error: It is unbounded\n");
-                //cout<<"Error: It is unbounded"<<endl;                       //display error message
-                            return true;
-            }
-            int pivotRow = find_PivotRow(pivotColumn);
-            doPivotting(pivotRow, pivotColumn);
-            return false;
-        }
-
-        bool checkOptimality()
-        {
-            bool isOptimal = false;
-            int positveValueCount = 0;
+            bool is_Optimal = false;
+            int positve_ValueCount = 0;
             for(int i=0; i<C.size(); i++)
             {
                 float value = C[i];
                 if(value >= 0)
                 {
-                    positveValueCount++;
+                    positve_ValueCount++;
                 }
             }
-            if(positveValueCount == C.size())
+            if(positve_ValueCount == C.size())
             {
-                isOptimal = true;
+                is_Optimal = true;
                 print();
             }
-            return isOptimal;
+            return is_Optimal;
         }
 
-        void doPivotting(int pivot_Row, int pivotColumn)
+        bool Simplex_Calculataion()
         {
-            float pivotValue = A[pivot_Row][pivotColumn];
-            float pivotRowVals[cols];
-            float pivotColVals[rows];
-            float rowNew[cols];
-            maximum = maximum - (C[pivotColumn]*(B[pivot_Row]/pivotValue));
+            if(check_Optimality() == true)
+            {
+                        return true;
+            }
+            int pivot_Column = find_PivotColumn();
+            if(is_Unbounded == true)
+            {
+                ui->simplexOutputTextBrowser->insertPlainText("Error: It is unbounded\n");
+
+                            return true;
+            }
+            int pivot_Row = find_PivotRow(pivot_Column);
+            do_Pivotting(pivot_Row, pivot_Column);
+            return false;
+        }
+
+        void do_Pivotting(int pivot_Row, int pivot_Column)
+        {
+            float pivot_Value = A[pivot_Row][pivot_Column];
+            float pivot_RowVals[cols];
+            float pivot_ColVals[rows];
+            float row_New[cols];
+            maximum = maximum - (C[pivot_Column]*(B[pivot_Row]/pivot_Value));
             for(int i=0;i<cols;i++)
             {
-               pivotRowVals[i] = A[pivot_Row][i];
+               pivot_RowVals[i] = A[pivot_Row][i];
             }
             for(int j=0;j<rows;j++)
             {
-               pivotColVals[j] = A[j][pivotColumn];
+               pivot_ColVals[j] = A[j][pivot_Column];
             }
             for(int k=0;k<cols;k++)
             {
-               rowNew[k] = pivotRowVals[k]/pivotValue;
+               row_New[k] = pivot_RowVals[k]/pivot_Value;
             }
-            B[pivot_Row] = B[pivot_Row]/pivotValue;
+
+            B[pivot_Row] = B[pivot_Row]/pivot_Value;
             for(int m=0;m<rows;m++)
             {
                if(m != pivot_Row)
                {
                    for(int p=0; p<cols; p++)
                    {
-                       float multiplyValue = pivotColVals[m];
-                       A[m][p] = A[m][p] - (multiplyValue*rowNew[p]);
+                       float multiply_Value = pivot_ColVals[m];
+                       A[m][p] = A[m][p] - (multiply_Value*row_New[p]);
                    }
                }
              }
@@ -133,18 +134,18 @@ class Simplex
             {
                 if(i != pivot_Row)
                 {
-                        float multiplyValue = pivotColVals[i];
-                        B[i] = B[i] - (multiplyValue*B[pivot_Row]);
+                        float multiply_Value = pivot_ColVals[i];
+                        B[i] = B[i] - (multiply_Value*B[pivot_Row]);
                 }
             }
-                float multiplyValue = C[pivotColumn];
+                float multiply_Value = C[pivot_Column];
                  for(int i=0;i<C.size();i++)
                 {
-                    C[i] = C[i] - (multiplyValue*rowNew[i]);
+                    C[i] = C[i] - (multiply_Value*row_New[i]);
                 }
              for(int i=0;i<cols;i++)
             {
-                A[pivot_Row][i] = rowNew[i];
+                A[pivot_Row][i] = row_New[i];
              }
         }
 
@@ -154,13 +155,11 @@ class Simplex
             {
                 for(int j=0;j<cols;j++)
                 {
-                    ui->simplexOutputTextBrowser->insertPlainText("\t" + QString::number(A[i][j]));                                       //print matrix*********
+                    ui->simplexOutputTextBrowser->insertPlainText("\t" + QString::number(A[i][j]));
                 }
-                ui->simplexOutputTextBrowser->insertPlainText("\n");
-                //cout<<""<<endl;                                                 //print space
+                ui->simplexOutputTextBrowser->insertPlainText("\n");                                               
             }
             ui->simplexOutputTextBrowser->insertPlainText(" ");
-            //cout<<""<<endl;                                                     //print space
         }
 
         int find_PivotColumn()
@@ -178,31 +177,31 @@ class Simplex
             return location;
         }
 
-        int find_PivotRow(int pivotColumn)
+        int find_PivotRow(int pivot_Column)
         {
-            float positiveValues[rows];
+            float positive_Values[rows];
             std::vector<float> result(rows,0);
-            int negativeValueCount = 0;
+            int negative_ValueCount = 0;
             for(int i=0;i<rows;i++)
             {
-                if(A[i][pivotColumn]>0)
+                if(A[i][pivot_Column]>0)
                 {
-                    positiveValues[i] = A[i][pivotColumn];
+                    positive_Values[i] = A[i][pivot_Column];
                 }
                 else{
-                    positiveValues[i]=0;
-                    negativeValueCount+=1;
+                    positive_Values[i]=0;
+                    negative_ValueCount+=1;
                 }
             }
-            if(negativeValueCount==rows)
+            if(negative_ValueCount==rows)
             {
-                isUnbounded = true;
+                is_Unbounded = true;
             }
             else
             {
                 for(int i=0;i<rows;i++)
                     {
-                    float value = positiveValues[i];
+                    float value = positive_Values[i];
                     if(value>0)
                     {
                         result[i] = B[i]/value;
@@ -229,16 +228,12 @@ class Simplex
             return location;
         }
 
-        void CalculateSimplex()
+        void Calculate_Simplex()
         {
             bool end = false;
-            ui->simplexOutputTextBrowser->insertPlainText("\nInitial matrix:\n");
-            //cout<<"\n\nInitial matrix"<<endl;                                                             //print heading
-            print();
             ui->simplexOutputTextBrowser->insertPlainText(" \n");
-            //cout<<" "<<endl;                                                                            //print space
             ui->simplexOutputTextBrowser->insertPlainText("Final matrix (Optimal solution)\n");
-            //cout<<"Final matrix (Optimal solution)"<<endl;                                              //print final matrix heading
+
             while(!end)
             {
                 bool result = Simplex_Calculataion();
@@ -248,7 +243,7 @@ class Simplex
                 }
             }
             ui->simplexOutputTextBrowser->insertPlainText("\nAnswers for the Constraints of variables \n");
-            //cout<<"Answers for the Constraints of variables"<<endl;                             //print heading
+
             for(int i=0; i<A.size(); i++)
                 {
                 int count0 = 0;
@@ -266,19 +261,19 @@ class Simplex
                 }
                 if(count0 == rows -1)
                 {
-                    //cout << "variable" << index+1 << ": " << B[index] << endl;                  //print variable
+
                     ui->simplexOutputTextBrowser->insertPlainText("variable" + QString::number(index+1) + ": " + QString::number(B[index]) + "\n");
                 }
                 else
                 {
-                    //cout << "variable" << index+1 << ": " << 0 << endl;                         //print variable
+
                     ui->simplexOutputTextBrowser->insertPlainText("variable" + QString::number(index+1) + ": " + "0" + "\n");
                 }
             }
             ui->simplexOutputTextBrowser->insertPlainText(" \n");
-            //cout << "  " << endl;                                                                //print space
+
             ui->simplexOutputTextBrowser->insertPlainText("maximum value: " + QString::number(maximum) + "\n");
-            //cout << "maximum value: " << maximum << endl;                                        //print maximum value
+
         }
 };
 

@@ -63,8 +63,6 @@ void SimplexProblem::on_SimplexSolveButton_clicked()
         ui->simplexOutputTextBrowser->insertPlainText(QString::number(objective[j]) + "\t");
     }
 
-
-
     float constraints[constraintSize];
     for(i=0; i < constraintSize; i++)
     {
@@ -76,8 +74,6 @@ void SimplexProblem::on_SimplexSolveButton_clicked()
          ui->simplexOutputTextBrowser->insertPlainText(QString::number(constraints[i]) + "\n");
     }
 
-
-
     float matrix[rowSize][colSize];
     for(i=0; i < rowSize; i++)
     {
@@ -86,7 +82,7 @@ void SimplexProblem::on_SimplexSolveButton_clicked()
             matrix[i][j] = ui->simplexTableWidget->item(i,j)->text().toFloat();
         }
     }
-    /*ui->simplexOutputTextBrowser->insertPlainText("\n\nInitialMatrix:\n");
+    ui->simplexOutputTextBrowser->insertPlainText("\n\nInitialMatrix:\n");
     for(i=0; i < rowSize; i++)
     {
         for(j=0; j < colSize; j++)
@@ -94,7 +90,7 @@ void SimplexProblem::on_SimplexSolveButton_clicked()
             ui->simplexOutputTextBrowser->insertPlainText("\t" + QString::number(matrix[i][j]));
         }
         ui->simplexOutputTextBrowser->insertPlainText("\n");
-    }*/
+    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     std::vector <std::vector<float> > vec2D(rowSize, std::vector<float>(colSize, 0));
@@ -108,29 +104,15 @@ void SimplexProblem::on_SimplexSolveButton_clicked()
              vec2D[i][j] = matrix[i][j];
          }
     }
-
     for(int i=0;i<constraintSize;i++)
     {
          b[i] = constraints[i];
     }
-
      for(int i=0;i<variableSize;i++)
     {
          c[i] = objective[i];
     }
 
      Simplex simplex(vec2D,b,c,ui);
-     simplex.CalculateSimplex();
+     simplex.Calculate_Simplex();
  }
-
-
-
-
-
-
-
-
-
-
-
-
