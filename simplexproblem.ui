@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimplexProblem</class>
+ <widget class="QDialog" name="SimplexProblem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1430</width>
+    <height>893</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Simplex Method</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>20</y>
+     <width>331</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the problem in matrix form for the Simplex Method</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SimplexSolveButton">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>830</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Solve</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="columnSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>90</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ColumnSizeLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the column size:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="rowSizeLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>140</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the row size:</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="rowSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>140</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="objecticeFunctionLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the objective fuction:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="variableAmountLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the amount of variables:</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="variablesSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>190</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="matrixLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>580</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the Matrix:</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="simplexTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>580</y>
+     <width>611</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="genrerateMatrixButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>130</y>
+     <width>141</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Generate Matrix</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="objectiveTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>270</y>
+     <width>551</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>1</number>
+   </property>
+   <row/>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter Capacity constraints:</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="constraintsTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>370</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="columnCount">
+    <number>1</number>
+   </property>
+   <column/>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>231</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the number of constraints:</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="constraintsSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>240</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>100</y>
+     <width>261</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Simplex Method Results:</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="simplexOutputTextBrowser">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>150</y>
+     <width>461</width>
+     <height>631</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="simplexDoneButton">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>820</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>simplexDoneButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SimplexProblem</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1214</x>
+     <y>840</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1296</x>
+     <y>841</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

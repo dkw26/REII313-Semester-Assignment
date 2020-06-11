@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BnBProblem</class>
+ <widget class="QDialog" name="BnBProblem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>788</width>
+    <height>765</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Branch-and-Bound Method</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>351</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the infromation for the BRanch-and-Bound Method</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the values:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>310</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the weights for the variables:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>450</y>
+     <width>221</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the capacity of the problem:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BnBSolveButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>450</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Solve</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="bnbOutputTextBrowser">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>510</y>
+     <width>471</width>
+     <height>151</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>520</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Branch and Bound solution:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bnbDoneButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>710</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter the number of items:</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="itemsSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>100</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="valuesTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>170</y>
+     <width>451</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>1</number>
+   </property>
+   <row/>
+  </widget>
+  <widget class="QTableWidget" name="weightsTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>310</y>
+     <width>451</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>1</number>
+   </property>
+   <row/>
+  </widget>
+  <widget class="QSpinBox" name="capacitySpinBox">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>450</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="bnbGenerateButton">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>100</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Generate matrix</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>bnbDoneButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BnBProblem</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>780</x>
+     <y>712</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>874</x>
+     <y>713</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
