@@ -15,13 +15,13 @@
 6. Choose a Mixed-integer Linear Programming solver
 7. If Simplex Method chosen:
 
-* Enter the column size (tipically the amount of unknown variables)
+* Enter the column size (typically the amount of unknown variables)
 * Enter the row size (typically the amount of equations)
-* Enter the ammount of variables (usually the same as the column size)
-* Enter the ammount of constraints (usually the same as row size)
+* Enter the amount of variables (usually the same as the column size)
+* Enter the amount of constraints (usually the same as row size)
 * Click "Generate Matrix"
-* Enter the objective fucntion coefficients in each cell corresponding to a variable number
-* Enter capacity restraints that correspond to each equation
+* Enter the objective function coefficients in each cell corresponding to a variable number
+* Enter capacity constraints that correspond to each equation
 * Enter the matrix of coefficients in the equations that respond to each variable.
 * Click Solve
 * Click Done when finished and satisfied with answer.
@@ -41,8 +41,8 @@
 
 Objective Function (Maximize): 6x + 5y + 4z
 
-Subject to: 2x + y + z <= 180
-            x + 3y + 2z <= 300
+Subject to: 2x + y + z <= 180, 
+            x + 3y + 2z <= 300, 
             2x + y + 2z <= 240
 
 #### Thus:
