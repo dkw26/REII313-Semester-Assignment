@@ -25,9 +25,4 @@ private slots:
 
 };
 
-
-
-
-
-
 #endif // SIMPLEXPROBLEM_H

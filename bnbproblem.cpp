@@ -15,7 +15,6 @@ BnBProblem::~BnBProblem()
     delete ui;
 }
 
-
 void BnBProblem::on_bnbGenerateButton_clicked()
 {
     int itemNum = ui->itemsSpinBox->text().toInt();
@@ -28,7 +27,6 @@ void BnBProblem::on_BnBSolveButton_clicked()
 {
     int itemNum = ui->itemsSpinBox->text().toInt();
     int capacity = ui->capacitySpinBox->text().toInt();
-
 
     int i;
 

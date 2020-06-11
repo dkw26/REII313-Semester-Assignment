@@ -1,6 +1,5 @@
 #ifndef BNBSOLVER_H
 #define BNBSOLVER_H
-
 #include<stdio.h>
 
 namespace Ui {

@@ -1,8 +1,6 @@
 #ifndef BNBPROBLEM_H
 #define BNBPROBLEM_H
 
-
-
 #include <QDialog>
 
 namespace Ui {
