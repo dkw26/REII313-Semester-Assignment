@@ -232,9 +232,9 @@ class Simplex
         void CalculateSimplex()
         {
             bool end = false;
-            ui->simplexOutputTextBrowser->insertPlainText("\nInitial matrix:\n");
+            //ui->simplexOutputTextBrowser->insertPlainText("\nInitial matrix:\n");
             //cout<<"\n\nInitial matrix"<<endl;                                                             //print heading
-            print();
+            //print();
             ui->simplexOutputTextBrowser->insertPlainText(" \n");
             //cout<<" "<<endl;                                                                            //print space
             ui->simplexOutputTextBrowser->insertPlainText("Final matrix (Optimal solution)\n");
