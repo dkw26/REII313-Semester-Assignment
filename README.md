@@ -52,15 +52,26 @@ Row size = 3
 Variable amount = 3
 Constraints amount = 3
 
-objective function: [2 | 5 | 4]
+objective function: 
 
-capcity constraints: [180]
-                     [300]
-                     [240]
+|    |1   |2   |3   |
+|----|----|----|----|
+|**1**   |6   |5   |4   |
 
-matrix: [2 | 1 | 1]
-        [1 | 3 | 2]
-        [2 | 1 | 2]
+
+capcity constraints: 
+|    |1   |
+|----|----|
+|**1**   |180 |
+|**2**   |300 |
+|**3**   |240 |
+
+matrix: 
+|    |1   |2   |3   |
+|----|----|----|----|
+|**1**   |2 |1 |1 |
+|**2**   |1 |3 |2 |
+|**3**   |2 |1 |2 |
 
 Maximum Value: 708
 
@@ -72,12 +83,18 @@ Weights Function: 89x + 45y + 10z + 45w
 
 Capacity: 16
 
-####Thus:
+#### Thus:
 
 Number of items: 4
 
-Values table: [12 | 45 | 56 | 45]
+Values table:
+|    |1   |2   |3   |4   |
+|----|----|----|----|----|
+|**1**   |12   |45   |56   |45   |
 
-Weights table: [89 | 45 | 10 | 45]
+Weights table: 
+|    |1   |2   |3   |4   |
+|----|----|----|----|----|
+|**1**   |89   |45   |10   |45   |
 
 Optimal solution = 56
